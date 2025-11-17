@@ -1,0 +1,112 @@
+/*JUEGO 
+Adivina el numero del otro jugador*/
+
+#include <stdio.h>
+int main (void){
+    int val = 0;
+    int num = 0;
+    int i = 0;
+    int triesJ2 = 1;
+    int triesJ1 = 1;
+    char letter;
+    
+    printf("Quieres jugar un juego de 2? Y/N ");
+    scanf(" %c",&letter);
+    
+    if (letter == 'y' || letter == 'Y'){
+    while (letter == 'y' || letter == 'Y'){
+        triesJ2 = 1;
+        triesJ1 = 1;
+        printf("Jugador 1 ingrese un numero para que el jugador 2 lo adivine: \n");
+        scanf ("%d",&val);
+    
+        for (i=0;i<10;i++){
+        printf("\n");
+        }
+    printf("Jugador 2 adivine el numero elegido por jugador 1: ");
+    scanf ("%d",&num);
+    printf("\n");
+    
+    while (num != val){
+    if (num == val){
+        triesJ2++;
+        
+    }else{
+    if (num < val){
+        printf("Más\n");
+        printf("Intentalo de nuevo: ");
+        scanf ("%d",&num);
+        printf("\n");
+        triesJ2++;
+    }else{
+    if (num > val){
+        printf ("Menos\n");
+        printf("Intentalo de nuevo: ");
+        scanf ("%d",&num);
+        printf ("\n");
+        triesJ2++;
+    }    
+    }
+    }
+}
+
+printf("Listo!\nLo lograste en %d intentos.\n",triesJ2);
+
+printf("Jugador 2 ingrese un numero para que el jugador 1 lo adivine: \n");
+    scanf ("%d",&val);
+    
+        for (i=0;i<10;i++){
+        printf("\n");
+        }
+    printf("Jugador 1 adivine el numero elegido por jugador 2: ");
+    scanf ("%d",&num);
+    printf("\n");
+    while (num != val){
+    if (num == val){
+        triesJ1++;
+        
+    }else{
+    if (num < val){
+        printf("Más\n");
+        printf("Intentalo de nuevo: ");
+        scanf ("%d",&num);
+        printf("\n");
+        triesJ1++;
+    }else{
+    if (num > val){
+        printf ("Menos\n");
+        printf("Intentalo de nuevo: ");
+        scanf ("%d",&num);
+        printf ("\n");
+        triesJ1++;
+    }    
+    }
+    }
+}
+
+printf("Listo!\nLo lograste en %d intentos.\n",triesJ1);
+printf ("\n");
+printf ("\n");
+if (triesJ1 < triesJ2){
+    printf ("El ganador es Jugador 1 con %d intentos. Jugador 2 lo logró en %d intentos\n",triesJ1,triesJ2);
+    printf ("Quieres jugar de nuevo?\n");
+    scanf (" %c",&letter);
+    }else{
+    if (triesJ2<triesJ1){
+    printf ("El ganador es Jugador 2 con %d intentos. Jugador 1 lo logró en %d intentos\n",triesJ2,triesJ1);
+    printf ("Quieres jugar de nuevo?\n");
+    scanf (" %c",&letter);
+    }else{
+        printf ("Hay un empate con %d intentos\n",triesJ1);
+        printf ("Quieres jugar de nuevo?\n");
+        scanf (" %c",&letter);
+    }
+        
+    }
+    }
+    }else{
+        printf ("Ok, tal vez mañana!\n");
+}
+
+return 0;
+}
